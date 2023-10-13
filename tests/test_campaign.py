@@ -5,6 +5,7 @@ from discord.ext.commands import Cog, command
 import pytest
 import pytest_asyncio
 
+
 class Misc(Cog):
     @command()
     async def ping(self, ctx):
@@ -31,10 +32,12 @@ async def bot():
 
     await dpytest.empty_queue()
 
+
 @pytest.mark.asyncio
 async def test_ping(bot):
     await dpytest.message("R!ping")
     assert dpytest.verify().message().content("Pong !")
+
 
 @pytest.mark.asyncio
 async def test_echo(bot):
